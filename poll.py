@@ -37,9 +37,13 @@ def main():
         sound = settings["sound"]
         print("Using alarm sound " + sound)
 
+    interval = 3
+    if "interval" in settings:
+        interval = settings["interval"]
+
     while True:
         check_all(settings["endpoints"], sound)
-        time.sleep(3)
+        time.sleep(interval)
     log.close()
 
 if __name__ == "__main__":
