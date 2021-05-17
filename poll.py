@@ -44,7 +44,7 @@ def send_telegram_msg(token, vac_center, free_slots, link):
 
 
 def get_telegram_chat_ids(token):
-    chat_ids = []
+    chat_ids = {}
     try:
         answer = requests.get(f"https://api.telegram.org/bot{token}/getUpdates")
         content = answer.content
@@ -53,9 +53,10 @@ def get_telegram_chat_ids(token):
         for chat in chats:
             if 'message' in chat:
                 chat_id = chat['message']['chat']['id']
+                text = chat['message']['text']
                 if chat_id is not None:
                     logger.debug(f'Chat ID: {chat_id}')
-                    chat_ids.append(chat_id)
+                    chat_ids[chat_id] = chat_id
     except Exception as e:
         logger.exception("Error in retrieving telegram chat ids", e)
     return chat_ids
