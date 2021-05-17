@@ -16,6 +16,9 @@ However, the URLs in the example file seem to be quite stable, only the start da
 An audio file can be configured to be played when an available date is detected.
 Download a file e.g. from [here](https://mixkit.co/free-sound-effects/alarm/) and configure the file name inside the settings file.
 
+Telegram Bot Message can be configured by adding the Telegram Bot API-Key to the settings.json.
+It will post a message to all chats where the bot is added with available slots including direct link to doctolib.
+
 To start polling for dates, execute:
 
 ```
