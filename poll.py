@@ -140,9 +140,10 @@ def check_all(endpoints, sound, token):
                             second_total = check_second_appointment(vac_center, url, first_date, second_start_date)
                             if second_total > 0:
                                 success = True
-                                #logger.info("Appointments at " + vac_center)
-                                logger.info(f'{total} freie Impftermine in {vac_center}: {link_url}')
-                                #logger.debug(parsed)
+                                if second_total < total:
+                                    logger.info(f'{second_total} freie Impftermine in {vac_center}: {link_url}')
+                                else:
+                                    logger.info(f'{total} freie Impftermine in {vac_center}: {link_url}')
                                 break
                         if success:
                             break
