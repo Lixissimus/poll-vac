@@ -141,9 +141,8 @@ def check_all(endpoints, sound, token):
                             if second_total > 0:
                                 success = True
                                 if second_total < total:
-                                    logger.info(f'{second_total} freie Impftermine in {vac_center}: {link_url}')
-                                else:
-                                    logger.info(f'{total} freie Impftermine in {vac_center}: {link_url}')
+                                    total = second_total
+                                logger.info(f'{total} freie Impftermine in {vac_center}: {link_url}')
                                 break
                         if success:
                             break
